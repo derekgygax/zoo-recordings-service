@@ -119,6 +119,42 @@ docker run -p 8000:8000 zoo-recordings-service
 4. Submit a pull request.
 
 ---
+## VS Code Recognize the Poetry Installs  
+
+By default, VS Code may not detect the virtual environment created by Poetry. Follow these steps to ensure VS Code properly recognizes and uses the Poetry environment:  
+
+1. **Locate the Poetry Virtual Environment Path**  
+  Run the following command to get the path to the Poetry virtual environment:  
+  ```sh
+  poetry env info --path
+  ```
+
+2. **Select the Virtual Environment in VS Code**  
+  - Open the **Command Palette** (`Cmd + Shift + P` on macOS, `Ctrl + Shift + P` on Windows/Linux).  
+  - Search for **"Python: Select Interpreter"** and select it.  
+  - Click **"Enter interpreter path"** → **"Find..."**  
+  - Paste the path from the command in the first step and press Enter.  
+
+3. **Set Up the Workspace for Auto-Detection (If Needed)**  
+  If VS Code still doesn’t detect the Poetry environment automatically, manually specify it in `.vscode/settings.json`:  
+
+  ```json
+  {
+    "python.defaultInterpreterPath": "<PASTE_THE_PATH_HERE>",
+    "python.venvPath": "~/.cache/pypoetry/virtualenvs"
+  }
+  ```
+
+  Replace `<PASTE_THE_PATH_HERE>` with the exact path from `poetry env info --path`.  
+
+4. **Restart VS Code (If Needed)**  
+  Close and reopen VS Code, then check that it is using the correct environment by running:  
+  ```sh
+  poetry run python --version
+  ```  
+  This should match the Python version used by your Poetry environment.  
+  
+---
 
 ## License
 MIT License. See `LICENSE` for details.
@@ -128,4 +164,8 @@ MIT License. See `LICENSE` for details.
 ## Contact
 Author: **Derek Gygax**  
 Email: [derekgygax@gmail.com](mailto:derekgygax@gmail.com)
+
+---
+
+MongoDB with Atlas and crispirzoo@gmail.com
 
