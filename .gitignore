@@ -1,0 +1,36 @@
+
+# IDE stuff
+.idea
+
+# VS code
+.vscode
+
+# env stuff
+.venv
+.env
+
+# Ignore Python cache directories and compiled files
+__pycache__/
+*.py[cod]
+*.cpython-*
+
+# DS_Store
+.DS_Store
+
+# Python-related
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Poetry virtual environments (if using local venvs)
+.venv/
+.virtualenvs/
+
+# Environment variables
+.env
+.env.*
+
+# Logs and temporary files
+*.log
+*.tmp
