@@ -1,3 +1,4 @@
+from fastapi import Depends
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from app.config import config
@@ -15,9 +16,9 @@ class MongoDB:
             cls._db = cls._client[config.DB_NAME]
         return cls._db
 
-async def get_db():
+def get_db():
     return MongoDB.connect()
 
-async def get_collection(collection_name: str):
-    db = await get_db()
+def get_collection(collection_name: str):
+    db = get_db()
     return db[collection_name]
